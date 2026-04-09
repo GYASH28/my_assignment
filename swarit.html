@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Swarit Pawar | Portfolio</title>
+    <style>
+        /* Reset and Base */
+        * { 
+            box-sizing: border-box; 
+            margin: 0; 
+            padding: 0; 
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #e2e8f0; /* Slightly different background tone */
+            color: #2d3748;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            padding: 20px;
+            overflow: hidden;
+        }
+
+        /* Header Section */
+        header {
+            background: linear-gradient(135deg, #4a5568, #718096); /* Unique color scheme for Swarit */
+            color: #ffffff;
+            padding: 25px;
+            text-align: center;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        header h1 { 
+            font-size: 2.4rem; 
+            margin-bottom: 5px; 
+            letter-spacing: 1px;
+        }
+        header p { 
+            font-size: 1.1rem; 
+            color: #edf2f7; 
+            font-weight: 300; 
+        }
+
+        /* Main Layout Grid */
+        main {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            flex: 1; 
+        }
+
+        /* Individual Sections */
+        section {
+            background: #ffffff;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+        }
+        h2 {
+            color: #2d3748;
+            border-bottom: 2px solid #a0aec0;
+            padding-bottom: 5px;
+            margin-bottom: 12px;
+            font-size: 1.4rem;
+        }
+        p { 
+            font-size: 0.95rem; 
+            line-height: 1.5; 
+            margin-bottom: 12px; 
+        }
+
+        /* Skills Tags */
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            list-style: none;
+            margin-top: 10px;
+        }
+        .skills-container li {
+            background: #edf2f7;
+            color: #4a5568;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        /* Projects */
+        .project-card {
+            border-left: 4px solid #718096;
+            background: #f7fafc;
+            padding: 12px 15px;
+            margin-bottom: 15px;
+            border-radius: 0 8px 8px 0;
+        }
+        .project-card h3 { 
+            font-size: 1.1rem; 
+            color: #2d3748; 
+            margin-bottom: 5px; 
+        }
+        .project-card p { 
+            margin-bottom: 0; 
+            font-size: 0.9rem; 
+        }
+
+        /* Contact Links */
+        .contact-links p {
+            margin-bottom: 8px;
+        }
+        .contact-link {
+            color: #4a5568;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .contact-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding-top: 15px;
+            color: #718096;
+            font-size: 0.85rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Swarit Pawar</h1>
+        <p>Computer Engineering & IoT Student</p>
+    </header>
+
+    <main>
+        <div style="display: flex; flex-direction: column;">
+            <section id="about" style="flex: 1;">
+                <h2>About Me</h2>
+                <p>Hello! I am a student based in Pune, currently in my first year pursuing a diploma in Computer Engineering and IoT at CWIT. I am passionate about learning how things work behind the scenes and building a strong foundation in modern technology.</p>
+                <p>When I'm not attending lectures or studying for exams, I enjoy hanging out with friends, exploring new tech trends, and leveling up my programming skills. Always eager to learn and take on new challenges!</p>
+                
+                <h2 style="margin-top: 20px;">Skills & Interests</h2>
+                <ul class="skills-container">
+                    <li>C Programming</li>
+                    <li>HTML & CSS</li>
+                    <li>IoT Basics</li>
+                    <li>Problem Solving</li>
+                    <li>Tech Hardware</li>
+                    <li>Gaming</li>
+                </ul>
+            </section>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 20px;">
+            <section id="projects">
+                <h2>Projects & Coursework</h2>
+                <div class="project-card">
+                    <h3>First-Year Studies</h3>
+                    <p>Currently focusing on mastering the fundamentals of computer science, algorithms, and basic electronics as part of the diploma curriculum.</p>
+                </div>
+                <div class="project-card">
+                    <h3>Personal Web Portfolio</h3>
+                    <p>Built a static, responsive single-page portfolio using HTML and CSS to showcase my skills and academic journey.</p>
+                </div>
+            </section>
+
+            <section id="contact" style="flex: 1;">
+                <h2>Let's Connect</h2>
+                <p>I'm always open to talking about technology, coursework, or future collaborations. Drop me a message!</p>
+                <div class="contact-links">
+                    <p>Email: <a href="mailto:swarit.pawar@example.com" class="contact-link">swarit.pawar@example.com</a></p>
+                    <p>GitHub: <a href="https://github.com/swaritpawar" class="contact-link">github.com/swaritpawar</a></p>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Swarit Pawar. Built with HTML & CSS.</p>
+    </footer>
+
+</body>
+</html>
