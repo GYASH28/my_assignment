@@ -5,72 +5,88 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Yash Krishna Ganesh | Portfolio</title>
     <style>
-        /* Base Styles */
+        /* Reset and Base */
+        * { 
+            box-sizing: border-box; 
+            margin: 0; 
+            padding: 0; 
+        }
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f7f6;
+            background-color: #dbe4e9;
             color: #333;
+            height: 100vh; /* Locks body to exactly screen height */
+            display: flex;
+            flex-direction: column;
+            padding: 20px;
+            overflow: hidden; /* Prevents any scrolling */
         }
 
         /* Header Section */
         header {
             background: linear-gradient(135deg, #2c3e50, #3498db);
             color: #ffffff;
-            padding: 5rem 2rem;
+            padding: 25px;
             text-align: center;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
         }
-        header h1 {
-            margin: 0;
-            font-size: 3rem;
+        header h1 { 
+            font-size: 2.4rem; 
+            margin-bottom: 5px; 
             letter-spacing: 1px;
         }
-        header p {
-            font-size: 1.2rem;
-            margin-top: 10px;
-            color: #ecf0f1;
-            font-weight: 300;
+        header p { 
+            font-size: 1.1rem; 
+            color: #ecf0f1; 
+            font-weight: 300; 
         }
 
-        /* Main Content Container */
+        /* Main Layout Grid */
         main {
-            max-width: 900px;
-            margin: -40px auto 40px auto; /* Pulls content up over the header slightly */
-            padding: 0 20px;
+            display: grid;
+            grid-template-columns: 1fr 1fr; /* Two equal columns side-by-side */
+            gap: 20px;
+            flex: 1; 
         }
 
         /* Individual Sections */
         section {
             background: #ffffff;
-            padding: 3rem;
-            margin-bottom: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
         }
         h2 {
             color: #2c3e50;
-            border-bottom: 3px solid #3498db;
-            padding-bottom: 10px;
-            display: inline-block;
-            margin-top: 0;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 5px;
+            margin-bottom: 12px;
+            font-size: 1.4rem;
+        }
+        p { 
+            font-size: 0.95rem; 
+            line-height: 1.5; 
+            margin-bottom: 12px; 
         }
 
         /* Skills Tags */
         .skills-container {
             display: flex;
             flex-wrap: wrap;
-            gap: 12px;
-            padding: 0;
+            gap: 10px;
             list-style: none;
+            margin-top: 10px;
         }
         .skills-container li {
             background: #e8f4f8;
             color: #2980b9;
-            padding: 8px 18px;
-            border-radius: 25px;
-            font-size: 0.95rem;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.85rem;
             font-weight: 600;
         }
 
@@ -78,31 +94,36 @@
         .project-card {
             border-left: 4px solid #3498db;
             background: #fafafa;
-            padding: 20px;
-            margin-top: 20px;
+            padding: 12px 15px;
+            margin-bottom: 15px;
             border-radius: 0 8px 8px 0;
         }
-        .project-card h3 {
-            margin-top: 0;
-            color: #2c3e50;
+        .project-card h3 { 
+            font-size: 1.1rem; 
+            color: #2c3e50; 
+            margin-bottom: 5px; 
+        }
+        .project-card p { 
+            margin-bottom: 0; 
+            font-size: 0.9rem; 
         }
 
         /* Contact Links */
+        .contact-links p {
+            margin-bottom: 8px;
+        }
         .contact-link {
             color: #3498db;
             text-decoration: none;
             font-weight: bold;
         }
-        .contact-link:hover {
-            text-decoration: underline;
-        }
 
         /* Footer */
         footer {
             text-align: center;
-            padding: 20px;
+            padding-top: 15px;
             color: #7f8c8d;
-            font-size: 0.9em;
+            font-size: 0.85rem;
         }
     </style>
 </head>
@@ -114,48 +135,50 @@
     </header>
 
     <main>
-        <section id="about">
-            <h2>About Me</h2>
-            <p>Hi! I'm an engineering student based in Pune, currently pursuing my diploma in Computer Engineering and IoT at CWIT. I have a strong passion for blending technology with creativity. When I'm not deep into my coursework or building tech projects, I manage administrative duties at a local CBSE school.</p>
-            <p>Outside of the tech world, I love watching anime, listening to old Hindi songs, hitting the gym, and playing football. I also have a deep background in drawing and illustration. Right now, I am actively learning Japanese as I prepare to apply for the MEXT scholarship to study in Japan!</p>
-        </section>
+        <div style="display: flex; flex-direction: column;">
+            <section id="about" style="flex: 1;">
+                <h2>About Me</h2>
+                <p>Hi! I'm an engineering student based in Pune, currently pursuing my diploma in Computer Engineering and IoT at CWIT. I have a strong passion for blending technology with creativity. When I'm not studying or building tech projects, I manage administrative duties at a local CBSE school.</p>
+                <p>Outside of tech, I love anime, old Hindi songs, gymming, and football. I also have a background in illustration and am currently learning Japanese to apply for the MEXT scholarship!</p>
+                
+                <h2 style="margin-top: 20px;">Skills & Interests</h2>
+                <ul class="skills-container">
+                    <li>Web Development</li>
+                    <li>IoT Systems</li>
+                    <li>Graphic Design</li>
+                    <li>HTML & CSS</li>
+                    <li>Illustration</li>
+                    <li>Japanese</li>
+                </ul>
+            </section>
+        </div>
 
-        <section id="skills">
-            <h2>Skills & Interests</h2>
-            <ul class="skills-container">
-                <li>Web Development</li>
-                <li>IoT Systems</li>
-                <li>Graphic Design</li>
-                <li>HTML & CSS</li>
-                <li>Illustration</li>
-                <li>Japanese Language</li>
-            </ul>
-        </section>
+        <div style="display: flex; flex-direction: column; gap: 20px;">
+            <section id="projects">
+                <h2>Projects & Experience</h2>
+                <div class="project-card">
+                    <h3>TechStart</h3>
+                    <p>A web platform in development for tech students, providing a centralized hub for resources, networking, and community support.</p>
+                </div>
+                <div class="project-card">
+                    <h3>Freelance Graphic Design</h3>
+                    <p>Leveraged my background in drawing to take on freelance design work, managing client projects and delivering custom graphics.</p>
+                </div>
+            </section>
 
-        <section id="projects">
-            <h2>Projects & Experience</h2>
-            
-            <div class="project-card">
-                <h3>TechStart</h3>
-                <p>A web platform currently in development, designed specifically for tech students. The goal is to provide a centralized hub for resources, networking, and support for the student tech community.</p>
-            </div>
-
-            <div class="project-card">
-                <h3>Freelance Graphic Design</h3>
-                <p>Leveraged my background in drawing to take on freelance design work. Successfully managed client projects and delivered custom graphics, turning a hobby into a profitable venture.</p>
-            </div>
-        </section>
-
-        <section id="contact">
-            <h2>Let's Connect</h2>
-            <p>Whether you want to discuss tech, collaborate on a project, or just chat about football and anime, feel free to reach out!</p>
-            <p>Email: <a href="mailto:your.email@example.com" class="contact-link">your.email@example.com</a></p>
-            <p>GitHub: <a href="https://github.com/gyash28" class="contact-link">github.com/gyash28</a></p>
-        </section>
+            <section id="contact" style="flex: 1;">
+                <h2>Let's Connect</h2>
+                <p>Whether you want to discuss tech, collaborate on a project, or just chat, feel free to reach out!</p>
+                <div class="contact-links">
+                    <p>Email: <a href="mailto:your.email@example.com" class="contact-link">your.email@example.com</a></p>
+                    <p>GitHub: <a href="https://github.com/gyash28" class="contact-link">github.com/gyash28</a></p>
+                </div>
+            </section>
+        </div>
     </main>
 
     <footer>
-        <p>&copy; 2026 Yash Krishna Ganesh. Built from scratch with HTML & CSS.</p>
+        <p>&copy; 2026 Yash Krishna Ganesh. Built with HTML & CSS.</p>
     </footer>
 
 </body>
