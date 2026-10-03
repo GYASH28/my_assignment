@@ -1,0 +1,61 @@
+name: Build ExamVerse APK
+
+on:
+  push:
+    branches:
+      - builds/examverse-v2
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - name: Checkout build branch
+        uses: actions/checkout@v4
+
+      - name: Restore ExamVerse source
+        shell: bash
+        run: |
+          cat examverse_chunks/* | base64 -d > ExamVerse-v2-source.zip
+          mkdir -p buildsrc
+          unzip -q ExamVerse-v2-source.zip -d buildsrc
+          test -f buildsrc/ExamVerse/settings.gradle
+
+      - name: Set up Java 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - name: Set up Gradle 8.9
+        uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: '8.9'
+
+      - name: Ensure Android SDK 35
+        shell: bash
+        run: |
+          yes | sdkmanager --licenses >/dev/null || true
+          sdkmanager "platforms;android-35" "build-tools;35.0.0"
+
+      - name: Build debug APK
+        working-directory: buildsrc/ExamVerse
+        run: gradle --no-daemon --stacktrace :app:assembleDebug
+
+      - name: Prepare APK
+        shell: bash
+        run: |
+          cp buildsrc/ExamVerse/app/build/outputs/apk/debug/app-debug.apk ExamVerse-v2.0.0.apk
+          sha256sum ExamVerse-v2.0.0.apk
+
+      - name: Upload installable APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: ExamVerse-v2.0.0-APK
+          path: ExamVerse-v2.0.0.apk
+          if-no-files-found: error
+          retention-days: 7
